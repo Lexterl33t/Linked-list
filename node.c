@@ -22,6 +22,16 @@ void insert_element(Node *last, int value)
   last->next->next = NULL;
 }
 
+int size_node(Node *node)
+{
+  int len = 0;
+  while(node) {
+    len++;
+    node = node->next;
+  }
+  return len;
+}
+
 void print_list(Node *node)
 {
   do {
