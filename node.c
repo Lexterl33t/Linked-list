@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "node.h"
 
-Node *init_list(int value)
+Node *node_init(int value)
 {
   Node *node = malloc(sizeof(Node));
   node->value = value;
@@ -11,7 +11,7 @@ Node *init_list(int value)
   return node;
 }
 
-void insert_element(Node *last, int value)
+void node_insert(Node *last, int value)
 {
   while(last->next)
     last = last->next;
@@ -22,7 +22,7 @@ void insert_element(Node *last, int value)
   last->next->next = NULL;
 }
 
-int size_node(Node *node)
+int node_size(Node *node)
 {
   int len = 0;
   while(node) {
@@ -32,10 +32,29 @@ int size_node(Node *node)
   return len;
 }
 
-void print_list(Node *node)
+void node_print(Node *node)
 {
   do {
     printf("%d\n", node->value);
     node = node->next;
   }while(node);
+}
+
+Node *node_get(Node *node, int index)
+{
+  while(node->previous)
+    node = node->previous;
+
+  for (size_t i = 0; i < index; i++) {
+    node = node->next;
+  }
+
+  return node;
+}
+
+void node_delete(Node *element)
+{
+  element->previous->next = element->next;
+  element->next->previous = element->previous;
+  free(element);
 }
