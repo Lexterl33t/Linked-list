@@ -12,4 +12,6 @@ int main(int argc, char **argv)
   print_list(node_init);
 
   printf("Hello world\n");
+
+  printf("Size of linked list: %d\n", size_node(node_init));
 }
