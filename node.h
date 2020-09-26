@@ -12,5 +12,5 @@ struct Node {
 Node *init_list(int value);
 void insert_element(Node *last, int value);
 void print_list(Node *node);
-
+int size_node(Node *node);
 #endif
