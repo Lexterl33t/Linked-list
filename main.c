@@ -4,14 +4,18 @@
 
 int main(int argc, char **argv)
 {
-  Node *node_init = init_list(0);
+  Node *node_initialisation = node_init(0);
 
-  insert_element(node_init, 1337);
-  insert_element(node_init, 1220);
+  node_insert(node_initialisation, 1337);
+  node_insert(node_initialisation, 1220);
+  node_insert(node_initialisation, 1789);
+  node_insert(node_initialisation, 1455);
+  node_insert(node_initialisation, 7899);
 
-  print_list(node_init);
+
+
+  node_print(node_initialisation);
 
   printf("Hello world\n");
-
-  printf("Size of linked list: %d\n", size_node(node_init));
+  printf("%d\n", node_get(node_initialisation, 3)->value);
 }
