@@ -1,5 +1,4 @@
-#ifndef NODE_HEADER
-#define NODE_HEADER
+#pragma once
 
 typedef struct Node Node;
 
@@ -9,8 +8,9 @@ struct Node {
   Node *previous;
 };
 
-Node *init_list(int value);
-void insert_element(Node *last, int value);
-void print_list(Node *node);
-int size_node(Node *node);
-#endif
+Node *node_init(int value);
+void node_insert(Node *last, int value);
+void node_print(Node *node);
+int node_size(Node *node);
+void node_delete(Node *element);
+Node *node_get(Node *node, int index);
